@@ -1,0 +1,36 @@
+	
+	-- Taula sortu
+	Create table froga (
+		id integer primary key not null,
+		izena varchar(16) not null,
+		abizena Varchar(20) not null,
+		Adina integer not null
+		)
+	ENGINE=InnoDB;
+
+
+		  -- Taula aldatu
+		  Alter table froga
+		  MODIFY Izena varchar(12),
+		  Add Adina integer not null;
+
+		 -- Tabalren izena aldatu
+		 Rename froga to froga2;
+		 
+		 
+		 -- Baloreak sartu 
+		 INSERT INTO froga2 
+		 values (1,"Ioritz","Lopetegi",21);
+
+-- Ezabatu
+DELETE FROM froga2 WHERE id= 1;
+
+
+-- Baloreak eguenratu
+Update froga2 set Izena = "Andoni" where izena = "Ioritz";
+
+
+
+ -- Balroeak aukeratu
+ SELECT * from froga2 where izena = "Ioritz";
+
