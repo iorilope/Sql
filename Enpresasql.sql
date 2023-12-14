@@ -101,12 +101,22 @@ alter table seme_alaba
 add foreign key (kode_langilea) references langilea(kode_langilea) on update cascade on delete cascade;
 
 alter table trebetasun_langile_izan
+add foreign key (kode_langilea) references langilea(kode_langilea) on update cascade on delete cascade,
+add foreign key (kode_trebetasuna) references trebetasunak(kode_trebetasuna) on update cascade on delete cascade;
+
+alter table seme_alaba
 add foreign key (kode_langilea) references langilea(kode_langilea) on update cascade on delete cascade;
 
 
 
-Load DATA infile 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\irakasleak.txt'
-
+Load DATA infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/irakasleak.txt'
 into table irakasleak
 fields terminated by ';'
 lines terminated by '\r\n';
+
+1 trebetasunak
+2 zentroa  gero update egin 7.na
+3 alorra
+4 langilea
+5 trebetasun langile izan edo seme alaba
+6 enpresakoa eta autonomoa inser into eginez bete
