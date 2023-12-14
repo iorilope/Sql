@@ -116,7 +116,48 @@ lines terminated by '\r\n';
 
 1 trebetasunak
 2 zentroa  gero update egin 7.na
-3 alorra
+3 alorra gero update egin 8.na
 4 langilea
 5 trebetasun langile izan edo seme alaba
 6 enpresakoa eta autonomoa inser into eginez bete
+
+
+Load DATA infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/fitxategiak_datuak_sartzeko/trebetasuna.txt'
+into table trebetasunak
+fields terminated by '\t'
+lines terminated by '\r\n';
+
+Load DATA infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/fitxategiak_datuak_sartzeko/zentrodatuak.txt'
+into table zentroa
+fields terminated by '\t'
+lines terminated by '\r\n'
+ (kode_zentroa,izena,helbidea,herria)
+;
+
+Load DATA infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/fitxategiak_datuak_sartzeko/alorra_datuak.txt'
+into table alorra
+fields terminated by '\t'
+lines terminated by '\r\n'
+(kode_alorra,kode_alorra_menpe,kode_zentroa,izena,aurrekontua,zuzendari_mota)
+;
+
+Load DATA infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/fitxategiak_datuak_sartzeko/langilea.txt'
+into table langilea
+fields terminated by '\t'
+lines terminated by '\r\n'
+;
+
+Load DATA infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/fitxategiak_datuak_sartzeko/trebe_izan.txt'
+into table trebetasun_langile_izan
+fields terminated by '\t'
+lines terminated by '\r\n'
+;
+
+Load DATA infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/fitxategiak_datuak_sartzeko/seme_alabak.txt'
+into table seme_alaba
+fields terminated by '\t'
+lines terminated by '\r\n'
+;
+
+
+
