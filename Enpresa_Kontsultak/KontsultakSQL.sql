@@ -29,7 +29,7 @@ WHERE izena LIKE '%Leon%';
 
 --Soldata between
 
-select izena from langilea where Soldata < 2000000 AND   > 5000000;
+select izena from langilea where Soldata < 2000000 or  Soldata > 5000000;
 
 --1985 baino lehen enrpesan sartutako langileetatik 4000000 baino gutxiago langileen izena eta  soldata atera
 
@@ -38,7 +38,14 @@ Select Izena,soldata from langilea where  Not Data_noiz_hasi > '1985-01-01' AND 
 --N.I.Fean D edo V bat daukaten langileen izena eta N.I.F.a atera eta hurrengo baldintzak betetzen dituztenak: a) IN&Di edo DIRGE alorretan lana egiten dutenak eta 5000000 baino gehiago irabazten dutenak, edo b) 1994 urtean kontratatuak izan zirenak.
 
 SELECT Izena,nif FROM langilea
-WHERE kode_alorra ='IN&DI' OR 'DIRGE' AND soldata > 5000000;
+WHERE nif like '%D' or nif like '%V'
+
+AND (kode_alorra ='IN&DI' OR kode_alorra = 'DIRGE') 
+ 
+ AND (soldata > 5000000)
+or (Data_noiz_hasi in ('1994-01-01','1994-12-31'));
+
+
 
 --Alorretako kodea, izena eta aurrekontua atera, aurrekontuaren arabera handienetik txikienera sailkatuta.
 
