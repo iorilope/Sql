@@ -37,17 +37,18 @@ Select Izena,soldata from langilea where  Not Data_noiz_hasi > '1985-01-01' AND 
 
 --N.I.Fean D edo V bat daukaten langileen izena eta N.I.F.a atera eta hurrengo baldintzak betetzen dituztenak: a) IN&Di edo DIRGE alorretan lana egiten dutenak eta 5000000 baino gehiago irabazten dutenak, edo b) 1994 urtean kontratatuak izan zirenak.
 
-SELECT Izena,nif FROM langilea
-WHERE nif like '%D' or nif like '%V'
+SELECT Izena,nif
+ FROM langilea
+WHERE (nif like '%D' or nif like '%V')
 
-AND (kode_alorra ='IN&DI' OR kode_alorra = 'DIRGE') 
- 
- AND (soldata > 5000000)
-or (Data_noiz_hasi in ('1994-01-01','1994-12-31'));
+AND ((Data_noiz_hasi between "1994-01-01" AND "1994-12-31") 
+or ((kode_alorra = "IN&Di" or kode_alorra = "DIRGE") AND (soldata >= 5000000)));
 
 
 
 --Alorretako kodea, izena eta aurrekontua atera, aurrekontuaren arabera handienetik txikienera sailkatuta.
 
 Select Kode_alorra,Izena,aurrekontua from alorra order by aurrekontua DESC;
+
+
 
