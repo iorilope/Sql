@@ -41,7 +41,7 @@ AND YEAR (seme_alaba.jaiotze_data) = YEAR (langilea.data_noiz_hasi);
 
 --PROZS alorretako langileen izena atera eta trebetasunen datu guztiak (baldin badituzte). Langilearen izenaren arabera informazioa sailkatu.
 
-Select langilea.kode_langilea,langilea.izena,trebetasun_langile_izan.maila,trebetasun_langile_izan.kode_trebetasuna,trebetasunak.azalpena
+Select langilea.izena,trebetasun_langile_izan.maila,trebetasun_langile_izan.kode_trebetasuna,trebetasunak.azalpena,langilea.kode_alorra
  from ((trebetasun_langile_izan
  right join  langilea on trebetasun_langile_izan.kode_langilea = langilea.kode_langilea)
  right join trebetasunak on trebetasun_langile_izan.kode_trebetasuna = trebetasunak.kode_trebetasuna)
