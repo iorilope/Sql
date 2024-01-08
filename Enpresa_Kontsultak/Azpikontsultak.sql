@@ -15,7 +15,7 @@ group by nif;
 -- izan behar du.
 
 Select izena from alorra 
-where aurrekontua <  ((select sum(soldata) from langilea) / 100 * 25); 
+where (aurrekontua * 0.25)  <=  (select sum(soldata) from langilea where alorra.kode_alorra = langilea.kode_alorra); 
 
 -- Hurrengo baldintza betetzen duten alorren izenak atera:
 -- a) Aurrekontua maximora iristen ez diren alorrak.
