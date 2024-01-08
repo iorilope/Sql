@@ -37,3 +37,22 @@ ENGINE=InnoDB;
 --Ezabatu lehenengo ariketan txertatu dugun erregistroa.
 
 Delete from TEMP where herria = "Murcia";
+
+
+--TEMP taulan, 5000000 baino gutxiago irabazten duten langileen soldatari %6a gehitu
+
+Update TEMP  set soldata = soldata + (soldata / 100 * 6) where soldata < 5000000;
+
+
+--TEMP taulan, 2 kodea daukan langileari kodea eta izena aldatu. Kode berria 3
+--izango da eta izen berria Cayuelas Albarracín Severiano
+
+Update TEMP set kode_langilea = 3,langile_Izena = "Cayuelas Albarracín Severiano" where kode_langilea = 2;
+
+--TEMP taularen errenkada guztiak ezabatu.
+
+Delete * from TEMP;
+
+--TEMP taula ezabatu.
+
+Drop table TEMP;
