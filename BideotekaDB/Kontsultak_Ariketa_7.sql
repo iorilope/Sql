@@ -38,3 +38,14 @@ delete from aktore_zaharrak where abizena = "forde"
 --Ikuspegiak egin
 Create view  2FilmBainogehiagoAktoreak   as 
 Select Izena,Abizena from aktorea where film_kopurua > 2;
+
+--Erabiltzaileak sortu
+
+Create user Langilea identified by "langilea"
+ grant all on *.* to Langilea
+
+
+create user bezeroa identified by "bezeroa"
+
+grant select on bideoteka.aktorea  to bezeroa
+grant select on bideoteka.filma  to bezeroa
