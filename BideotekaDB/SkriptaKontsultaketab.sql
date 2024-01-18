@@ -17,6 +17,9 @@ select count(aktorea.film_kopurua) as Filma_Kopurua from aktorea;
 
 select AVG(aktorea.film_kopurua) as Film_Media from aktorea;
 
+/* errorea ematen badu SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY','')); pegatu kontsolan */
+SELECT Izena,abizena,MAX(film_kopurua) FROM aktorea WHERE film_kopurua<10 group by a_zb;
+
 CREATE TABLE aktore_zaharrak (
   id INT PRIMARY KEY AUTO_INCREMENT,
   izena VARCHAR(20) NOT NULL,
