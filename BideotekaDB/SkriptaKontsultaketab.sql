@@ -37,6 +37,3 @@ delete from aktore_zaharrak where abizena = "forde";
 
 Create view  2FilmBainogehiagoAktoreak   as 
 Select Izena,Abizena from aktorea where film_kopurua > 2;
-
-
-
