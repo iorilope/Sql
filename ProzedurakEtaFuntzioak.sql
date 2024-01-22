@@ -55,3 +55,34 @@ INSERT INTO helduak(adina,izena) VALUES(adina,izena);end IF;
 end;
 
 
+--Prozedura if then
+
+CREATE TABLE zerrenda(kodea int unsigned auto_increment primary key
+,balorea int unsigned);
+
+CREATE procedure nereProk(IN p1 int)
+ begin
+ declare nerealdg int;
+ SET nerealdg = p1 +1 ;
+ IF nerealdg = 12 then
+INSERT INTO zerrenda(balorea) VALUES(55555);
+ else
+INSERT INTO zerrenda(balorea) VALUES(7665);
+ end IF;
+ end;
+
+ --prozedura Switch
+
+ CREATE DEFINER=`root`@`localhost` PROCEDURE `nereProk1`(IN p1 int)
+begin
+ declare aldg int ;
+ SET aldg = p1 +2 ;
+ case aldg
+ when 2 then INSERT INTO zerrenda(balorea) VALUES (66666);
+ when 3 then INSERT INTO zerrenda(balorea) VALUES
+(4545665);
+ else INSERT INTO zerrenda(balorea) VALUES (77777777);
+ end case;
+ end
+
+ 
