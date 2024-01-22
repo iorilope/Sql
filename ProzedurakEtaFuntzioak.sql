@@ -107,4 +107,34 @@ begin
 
  end IF;
  end
- 
+
+--Ingurune grafiko gabe egin behar dena
+ call proba.konparatu2('Kaixoasd','kaixo',@mezua2);
+select @mezua2;
+
+
+--Ariketa izena lortu
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `izena_lortu`(in kodea int)
+BEGIN
+select izena,Abizena from idazleak where id = kodea;
+END
+
+
+--2 ariekta funtzioa
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `idazlea_ezabatu`(id2 int unsigned) RETURNS varchar(30) CHARSET utf8mb4
+BEGIN
+declare mezua varchar(30);
+declare kodea int unsigned;
+select id into kodea;
+if id2 = kodea then
+delete from idazleak where id2 = kodea;
+set mezua ="idazlea ezabatu da";
+return mezua;
+else
+set mezua = "Idazlea ez da egokia";
+return mezua;
+end if;
+
+END
