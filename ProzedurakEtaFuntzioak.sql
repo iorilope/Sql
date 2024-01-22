@@ -85,4 +85,26 @@ begin
  end case;
  end
 
+ --Karaktereak konparatu Prozedura
+
+ CREATE procedure konparatu(IN kate1 varchar(25), IN kate2 varchar(25))
+ begin
+ IF strcmp(kate1, kate2) = 0 then
+ SELECT "BERDINAK DIRA!";
+ else
+ SELECT "DESBERDINAK DIRA!!";
+ end IF;
+ end;
+--karaktereak konpartu prozedura In and Out
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `konparatu2`(IN kate1 varchar(25), IN kate2 varchar(25),out mezua2 varchar(30))
+begin
+ IF strcmp(kate1, kate2) = 0 then
+ set mezua2 = "BERDINAK DIRA!";
+
+ else
+ set mezua2 ="DESBERDINAK DIRA!!";
+
+ end IF;
+ end
  
