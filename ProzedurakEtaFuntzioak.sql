@@ -27,10 +27,31 @@ END
 
 --Prozedura2
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `KaixoMundua1`(in mezua2 varchar(30))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `KaixoMundua1`(in mezua2 varchar(30),out mezua varchar(30))
     DETERMINISTIC
 BEGIN
-declare mezua varchar(30);
+
  SET mezua = mezua2;
- select mezua2;
+ 
+
 END
+
+--PertsonaSartuprozedura
+
+CREATE TABLE umeak(kodea int unsigned auto_increment primary key
+,adina tinyint unsigned, izena varchar(50));
+
+CREATE TABLE helduak(kodea int unsigned auto_increment primary key
+,adina tinyint unsigned, izena varchar(50));
+
+
+CREATE procedure pertsonasartu(IN adina tinyint unsigned,IN izena
+varchar(50))
+begin
+IF adina < 18 then
+INSERT INTO umeak(adina,izena) VALUES(adina,izena);
+else
+INSERT INTO helduak(adina,izena) VALUES(adina,izena);end IF;
+end;
+
+
