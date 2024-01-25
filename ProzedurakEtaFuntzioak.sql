@@ -36,7 +36,7 @@ BEGIN
 
 END
 
---PertsonaSartuprozedura
+--Sortu idazleak taula hurrengo eremuekin: kodea, izena eta abizena.
 
 CREATE TABLE umeak(kodea int unsigned auto_increment primary key
 ,adina tinyint unsigned, izena varchar(50));
@@ -113,7 +113,7 @@ begin
 select @mezua2;
 
 
---Ariketa izena lortu
+--Egin prozedura bat izena_lortu izenarekin ,non kodea sartu ondoren, idazlearen izena eta abizena itzuliko duen.u
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `izena_lortu`(in kodea int)
 BEGIN
@@ -121,7 +121,7 @@ select izena,Abizena from idazleak where id = kodea;
 END
 
 
---2 ariekta funtzioa
+--Egin funtzio bat idazlea_ezabatu izenarekin, non idazle baten kodea sartu ondoren, idazle horren datuak ezabatuko duen eta mezu bat itzuliko duen:
 
 CREATE DEFINER=`root`@`localhost` FUNCTION `Idazlea_Ezabatu`(zenbakia int) RETURNS varchar(30) CHARSET utf8mb4
     DETERMINISTIC

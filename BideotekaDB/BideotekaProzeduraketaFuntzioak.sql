@@ -1,5 +1,4 @@
--- 8.Prozedura bat egin aktore taulan datuak sartzeko. Adibidez:
--- Datuak_sartu(“Brad”,”Pitt”)
+-- 8.Prozedura bat egin aktore taulan datuak sartzeko. Adibidez:  Datuak_sartu(“Brad”,”Pitt”)
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Datuak_Sartu`(In izen varchar(20),in abizen varchar(20))
 BEGIN
@@ -18,8 +17,7 @@ set kopurua = (select count(p_zb)  from filma);
 RETURN kopurua;
 END
 
---Prozedura bat egin aktore baten film_kopurua egokia den
---balorearekin inizializatzeko.
+--Prozedura bat egin aktore baten film_kopurua egokia den balorearekin inizializatzeko.
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Aktore_Film_Kop`(in zenbakia int, out kopurua int)
     DETERMINISTIC
