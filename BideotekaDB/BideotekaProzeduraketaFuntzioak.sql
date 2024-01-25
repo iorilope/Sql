@@ -21,3 +21,13 @@ END
 --Prozedura bat egin aktore baten film_kopurua egokia den
 --balorearekin inizializatzeko.
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Aktore_Film_Kop`(in zenbakia int, out kopurua int)
+    DETERMINISTIC
+BEGIN
+declare zenb int;
+set zenb =0;
+select a_zb into zenb from aktorea where a_zb=zenbakia;
+set kopurua = (select film_kopurua  from aktorea where a_zb = zenb);
+select kopurua;
+END
+
