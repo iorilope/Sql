@@ -139,3 +139,15 @@ BEGIN
 	end if;
 RETURN mezua;
 END
+
+-- 2.Enpresa datu-basean egin prozedura bat langilearen seme_alaben kopurua kalkulatzeko.
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Seme_alaben_Kopurua`(in zenbakia int, out kopurua int)
+    DETERMINISTIC
+BEGIN
+declare zenb int;
+set zenb =0;
+select kode_langilea into zenb from langilea where kode_langilea=zenbakia;
+set kopurua = (select count(seme_alaba.izena)  from seme_alaba where seme_alaba.kode_langilea = zenb);
+select kopurua;
+END
