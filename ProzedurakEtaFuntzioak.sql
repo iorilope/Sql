@@ -123,18 +123,19 @@ END
 
 --2 ariekta funtzioa
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `idazlea_ezabatu`(id2 int unsigned) RETURNS varchar(30) CHARSET utf8mb4
+CREATE DEFINER=`root`@`localhost` FUNCTION `Idazlea_Ezabatu`(zenbakia int) RETURNS varchar(30) CHARSET utf8mb4
+    DETERMINISTIC
 BEGIN
-declare mezua varchar(30);
-declare kodea int unsigned;
-select id into kodea;
-if id2 = kodea then
-delete from idazleak where id2 = kodea;
-set mezua ="idazlea ezabatu da";
-return mezua;
-else
-set mezua = "Idazlea ez da egokia";
-return mezua;
-end if;
-
+	declare mezua varchar(30);
+    declare zenb int;
+    set zenb =0;
+    select id into zenb from idazleak where id=zenbakia;
+    
+	if zenb <> 0 THEN
+		DELETE FROM idazleak WHERE id=zenb;
+        set mezua='Idazlea ongi ezabatu da';
+	else
+		set mezua='Idazlea ez da existitzen,sartu kodea ondo!';
+	end if;
+RETURN mezua;
 END
