@@ -29,3 +29,12 @@ set kopurua = (select film_kopurua  from aktorea where a_zb = zenb);
 select kopurua;
 END
 
+
+
+
+
+Film aktore istorikoa
+kode int ai 
+p_zb
+a_zb
+data
