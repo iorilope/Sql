@@ -51,8 +51,4 @@ grant select on bideoteka.aktorea  to bezeroa
 grant select on bideoteka.filma  to bezeroa
 
 
-CREATE DEFINER=`root`@`localhost` TRIGGER `filma_has_aktorea_AFTER_INSERT` AFTER Delete ON `filma_has_aktorea` FOR EACH ROW Begin update
-aktorea
-set film_kopurua = film_kopurua - 1  where  a_zb = old.aktorea_a_zb;
-insert into film_aktore_historikoa values(old.a_zb,old.p_zb,old.Data,curdate(),current_user());
-END
+
